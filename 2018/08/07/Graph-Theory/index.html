@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="匹配（Match）  对于一个给定的图$G= (V,E)$，这幅图的一个匹配$M$（或称独立边集）是图$G$ 的一个子图（由原来的图的一部分顶点和一部分边构成的图），其中任意两条边都不相邻（没有公共顶点）。 这时每个顶点都至多连出一条边，而每一条边都将一对顶点相匹配。   如果一个匹配中，图中的每个顶点都和图中某条边相关联，则称此匹配为完全匹配，也称作完备匹配。  极大匹配 (Maximal Ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Graph_Theory">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/Graph-Theory/index.html">
+<meta property="og:site_name" content="D3E0">
+<meta property="og:description" content="匹配（Match）  对于一个给定的图$G= (V,E)$，这幅图的一个匹配$M$（或称独立边集）是图$G$ 的一个子图（由原来的图的一部分顶点和一部分边构成的图），其中任意两条边都不相邻（没有公共顶点）。 这时每个顶点都至多连出一条边，而每一条边都将一对顶点相匹配。   如果一个匹配中，图中的每个顶点都和图中某条边相关联，则称此匹配为完全匹配，也称作完备匹配。  极大匹配 (Maximal Ma">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-07T11:09:19.269Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Graph_Theory">
+<meta name="twitter:description" content="匹配（Match）  对于一个给定的图$G= (V,E)$，这幅图的一个匹配$M$（或称独立边集）是图$G$ 的一个子图（由原来的图的一部分顶点和一部分边构成的图），其中任意两条边都不相邻（没有公共顶点）。 这时每个顶点都至多连出一条边，而每一条边都将一对顶点相匹配。   如果一个匹配中，图中的每个顶点都和图中某条边相关联，则称此匹配为完全匹配，也称作完备匹配。  极大匹配 (Maximal Ma">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/Graph-Theory/"/>
+
+
+
+
+
+  <title>Graph_Theory | D3E0</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">D3E0</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/Graph-Theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="D3E0">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="D3E0">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Graph_Theory</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-07T18:59:36+08:00">
+                2018-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="匹配（Match）"><a href="#匹配（Match）" class="headerlink" title="匹配（Match）"></a>匹配（Match）</h2><blockquote>
+<p> 对于一个给定的图$G= (V,E)$，这幅图的一个匹配$M$（或称独立边集）是图$G$ 的一个子图（由原来的图的一部分顶点和一部分边构成的图），其中任意两条边都不相邻（没有公共顶点）。 这时每个顶点都至多连出一条边，而每一条边都将一对顶点相匹配。</p>
+</blockquote>
+<ol>
+<li>如果一个匹配中，图中的每个顶点都和图中某条边相关联，则称此匹配为完全匹配，也称作完备匹配。 </li>
+<li>极大匹配 (Maximal Matching) 是指在当前已完成的匹配下，无法再通过增加未完成匹配的边的方式来增加匹配的边数。</li>
+<li>最大匹配 (Maximum Matching) 是所有极大匹配当中边数最大的一个匹配。选择这样的边数最大的子集称为图的最大匹配问题。  <a id="more"></a>
+<h2 id="增广路径（Augmenting-Path）"><a href="#增广路径（Augmenting-Path）" class="headerlink" title="增广路径（Augmenting Path）"></a>增广路径（Augmenting Path）</h2></li>
+</ol>
+<blockquote>
+<p> 若路径$P$是图$G$中一条连通两个未匹配顶点的<strong>路径</strong>，并且属于$M$的<strong>边</strong>和不属于$M$的<strong>边</strong>(即已匹配和待匹配的边)在$P$上交替出现，则称$P$为相对于$M$的一条增广路径。</p>
+</blockquote>
+<h3 id="增广路径性质"><a href="#增广路径性质" class="headerlink" title="增广路径性质"></a>增广路径性质</h3><p>由增广路的定义可以推出下述三个结论：</p>
+<ol>
+<li>P 的路径长度必定为奇数，第一条边和最后一条边都不属于 M，因为两个端点分属两个集合，且未匹配。</li>
+<li>P 经过取反操作可以得到一个更大的匹配 M’。</li>
+<li>M 为 G 的最大匹配当且仅当不存在相对于 M 的增广路径。</li>
+</ol>
+<h2 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h2><p>匈牙利算法主要利用增广路的性质来求二分图的最大匹配 (匈牙利算法，匈牙利数学家 Edmonds 于1965年提出) 算法描述如下：</p>
+<ol>
+<li>置 M 为空</li>
+<li>找出一条增广路径 P，通过取反操作获得更大的匹配 M’ 代替 M</li>
+<li>重复 2 操作直到找不出增广路径为止</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//============================================================================</span></span><br><span class="line"><span class="comment">//Name：匈牙利算法 二分图最大匹配</span></span><br><span class="line"><span class="comment">//============================================================================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, a, n) for (int i = a; i &lt; n; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mm(arr, val) memset(arr, val, sizeof(arr))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, arr[N][N], cx[N], cy[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    rep(u, <span class="number">1</span>, m + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[v][u] &amp;&amp; !vis[u]) &#123;</span><br><span class="line">            vis[u] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!cy[u] || dfs(cy[u])) &#123;</span><br><span class="line">                cx[v] = u, cy[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mm(cx, <span class="number">0</span>), mm(cy, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(v, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!cx[v]) &#123;</span><br><span class="line">            mm(vis, <span class="number">0</span>);</span><br><span class="line">            ans += dfs(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">        rep(j, <span class="number">1</span>, m + <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; arr[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; hungarian() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="KM-最佳匹配"><a href="#KM-最佳匹配" class="headerlink" title="KM 最佳匹配"></a>KM 最佳匹配</h2><p>求二分图的最佳匹配有一个非常优秀的算法,可以做到 $O(N^3)$,这就是 KM 算法。该算法描述如下：</p>
+<ol>
+<li>首先选择顶点数较少的为 X 部，初始时对 X 部的每一个顶点设置顶标，顶标的值为该点关联的最大边的权值，Y 部的顶点顶标为 0。</li>
+<li>对于 X 部中的每个顶点，在相等子图中利用匈牙利算法找一条增广路径，如果没有找到，则修改顶标，扩大相等子图，继续找增广路径。</li>
+<li>当每个点都找到增广路径时，此时意味着每个点都在匹配中，即找到了二分图的完备匹配。该完备匹配即为二分图的最佳匹配。</li>
+</ol>
+<p>相等子图：原图的生成子图（包含原图的所有结点，但是不包含所有的边），边满足边权等于两端点的顶标之和。</p>
+<p>修改顶标方法：修改顶标的目的是扩大相等子图。如果从 X 部中的某个点 v 出发在相等子图中没有找到增广路径，就将增广路上的 X 标杆上的点加入点集 S，将 Y 标杆上的所有点加入点集 T，并将在 S 点集内的 x 的顶标减 d，T 中的 y 的顶标加 d，这样能保证至少有一条边被加入到相等子图中。</p>
+<p>$$ d = min{L(x) + L(y) - w(x, y)}  \quad (x \in S, y \in T) ​$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//============================================================================</span></span><br><span class="line"><span class="comment">//Name：KM 带权二分图最佳匹配</span></span><br><span class="line"><span class="comment">//https://blog.csdn.net/hello_sheep/article/details/77150497?locationNum=6&amp;fps=1</span></span><br><span class="line"><span class="comment">//https://blog.csdn.net/sixdaycoder/article/details/47720471</span></span><br><span class="line"><span class="comment">//============================================================================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IO ios_base::sync_with_stdio(0),cin.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, a, n) for (int i = a; i &lt; n; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mm(arr, val) memset(arr, val, sizeof(arr))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = INT_MAX;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MIN = INT_MIN;</span><br><span class="line"><span class="comment">// n == X 部顶点数  m == Y 部顶点数 </span></span><br><span class="line"><span class="keyword">int</span> n, m, minz, arr[N][N];</span><br><span class="line"><span class="comment">// cy == Y 匹配的 X， wx、wy == X Y部点的顶标</span></span><br><span class="line"><span class="keyword">int</span> cy[N], wx[N], wy[N];</span><br><span class="line"><span class="comment">// 访问标记：是否在增广轨中</span></span><br><span class="line"><span class="keyword">bool</span> visx[N], visy[N];</span><br><span class="line"></span><br><span class="line"><span class="comment">//匈牙利算法找增广路径</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    visx[s] = <span class="literal">true</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, m + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visy[i]) &#123;</span><br><span class="line">            <span class="keyword">int</span> t = wx[s] + wy[i] - arr[s][i];</span><br><span class="line"><span class="comment">//          相等子图中寻找增广路</span></span><br><span class="line">            <span class="keyword">if</span> (!t) &#123;</span><br><span class="line">                visy[i] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (!cy[i] || dfs(cy[i])) &#123;</span><br><span class="line">                    cy[i] = s;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t &gt; <span class="number">0</span> &amp;&amp; t &lt; minz) &#123;</span><br><span class="line">                minz = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">km</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mm(cy, <span class="number">0</span>), mm(wy, <span class="number">0</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            minz = MAX;</span><br><span class="line">            mm(visx, <span class="number">0</span>), mm(visy, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span> (dfs(i))<span class="keyword">break</span>;</span><br><span class="line">            <span class="comment">//将增广轨中 X 部的点的顶标减去 minz</span></span><br><span class="line">            rep(j, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (visx[j]) wx[j] -= minz;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//将增广轨中 Y 部的点的顶标加上 minz</span></span><br><span class="line">            rep(j, <span class="number">1</span>, m + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (visy[j]) wy[j] += minz;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 最大权值</span></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, m + <span class="number">1</span>) ans += arr[cy[i]][i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    freopen(<span class="string">R"(C:\Users\ACM-PC\CLionProjects\Competitaon\Problem\in)"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">R"(C:\Users\ACM-PC\CLionProjects\Competitaon\Problem\out)"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    rep(i, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">        wx[i] = MIN;</span><br><span class="line">        rep(j, <span class="number">1</span>, m + <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; arr[i][j];</span><br><span class="line">            <span class="comment">// 初始为关联边最大权值</span></span><br><span class="line">            wx[i] = max(wx[i], arr[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; km() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/Chiaki-Sequence-Revisited/" rel="next" title="Chiaki Sequence Revisited">
+                <i class="fa fa-chevron-left"></i> Chiaki Sequence Revisited
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/07/Mathematical/" rel="prev" title="Mathematical">
+                Mathematical <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">D3E0</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配（Match）"><span class="nav-number">1.</span> <span class="nav-text">匹配（Match）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增广路径（Augmenting-Path）"><span class="nav-number">2.</span> <span class="nav-text">增广路径（Augmenting Path）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增广路径性质"><span class="nav-number">2.1.</span> <span class="nav-text">增广路径性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匈牙利算法"><span class="nav-number">3.</span> <span class="nav-text">匈牙利算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KM-最佳匹配"><span class="nav-number">4.</span> <span class="nav-text">KM 最佳匹配</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">D3E0</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

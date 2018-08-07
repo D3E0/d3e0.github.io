@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Normal Flow123456789/*基础*/元素默认定位方式，  - 块级元素在它们的包含块里一个一个垂直延伸，  - 行内元素在它们的包含块里从左至右的水平排布。/*进阶*/上下两个块级元素之间的边距由它们之中边距较大的元素决定，而不是他们的和！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 定位">
+<meta property="og:url" content="http://yoursite.com/2018/07/28/CSS-定位/index.html">
+<meta property="og:site_name" content="D3E0">
+<meta property="og:description" content="Normal Flow123456789/*基础*/元素默认定位方式，  - 块级元素在它们的包含块里一个一个垂直延伸，  - 行内元素在它们的包含块里从左至右的水平排布。/*进阶*/上下两个块级元素之间的边距由它们之中边距较大的元素决定，而不是他们的和！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-07T11:09:19.269Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 定位">
+<meta name="twitter:description" content="Normal Flow123456789/*基础*/元素默认定位方式，  - 块级元素在它们的包含块里一个一个垂直延伸，  - 行内元素在它们的包含块里从左至右的水平排布。/*进阶*/上下两个块级元素之间的边距由它们之中边距较大的元素决定，而不是他们的和！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/28/CSS-定位/"/>
+
+
+
+
+
+  <title>CSS 定位 | D3E0</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">D3E0</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/CSS-定位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="D3E0">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="D3E0">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS 定位</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T15:23:57+08:00">
+                2018-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Normal-Flow"><a href="#Normal-Flow" class="headerlink" title="Normal Flow"></a>Normal Flow</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*基础*/</span></span><br><span class="line"></span><br><span class="line">元素默认定位方式，</span><br><span class="line">  <span class="selector-tag">-</span> 块级元素在它们的包含块里一个一个垂直延伸，</span><br><span class="line">  <span class="selector-tag">-</span> 行内元素在它们的包含块里从左至右的水平排布。</span><br><span class="line"></span><br><span class="line"><span class="comment">/*进阶*/</span></span><br><span class="line"></span><br><span class="line">上下两个块级元素之间的边距由它们之中边距较大的元素决定，而不是他们的和！</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*基础*/</span></span><br><span class="line"></span><br><span class="line">让某个块级元素脱离标准流，漂浮在标准流之上，和标准流不是一个层次。</span><br><span class="line">  <span class="selector-tag">-</span> 假如某个 <span class="selector-tag">div</span> 元素 <span class="selector-tag">A</span> 是浮动的，如果 <span class="selector-tag">A</span> 元素上一个元素也是浮动的，那么 <span class="selector-tag">A</span> 元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么<span class="selector-tag">A</span>元素会被挤到下一行)；如果 <span class="selector-tag">A</span> 元素上一个元素是标准流中的元素，那么 <span class="selector-tag">A</span> 的相对垂直位置不会改变，也就是说 <span class="selector-tag">A</span> 的顶部总是和上一个元素的底部对齐。</span><br><span class="line"></span><br><span class="line"><span class="comment">/*进阶*/</span></span><br><span class="line"><span class="selector-tag">clear</span> 打破浮动之后的横向排列</span><br><span class="line">  <span class="selector-tag">-</span> 只能影响使用清除的元素本身，不能影响其他元素。</span><br></pre></td></tr></table></figure>
+<h3 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*基础*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">absolute</span>：绝对定位，元素从 <span class="selector-tag">Normal</span> <span class="selector-tag">Flow</span> 删除，并相对于包含块（<span class="selector-tag">padding</span> 的左上角）定位。元素定位后为一个块级框。包含块为最近的 <span class="selector-tag">position</span> 值不是 <span class="selector-tag">static</span> 的祖先元素(块级或行内)，一般会指定一个元素作为绝对定位元素的包含块，将其 <span class="selector-tag">position</span> 设置为 <span class="selector-tag">relative</span> 而且没有偏移。</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">fixed</span>：固定定位，元素脱离 <span class="selector-tag">Normal</span> <span class="selector-tag">Flow</span>，并相对于浏览器视窗定位，因此不随文档滚动而移动。元素定位后为一个块级框。与绝对定位的区别仅仅是包含块不同。</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">relative</span>：相对定位，元素相对自身原位置（<span class="selector-tag">margin</span> 的左上侧）偏移某个距离，但是原本的空间依旧保留，表现为空白。在使用中通常把一个元素设置为 <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>; 可以使该元素的子元素相对该元素绝对定位。</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">static</span>：默认值，没有定位，元素出现在正常的流中（忽略 <span class="selector-tag">top</span>, <span class="selector-tag">bottom</span>, <span class="selector-tag">left</span>, <span class="selector-tag">right</span> 或者 <span class="selector-tag">z-index</span> 声明）。</span><br><span class="line"></span><br><span class="line"><span class="comment">/*进阶*/</span></span><br><span class="line"></span><br><span class="line">absolute/fixed 和 float 对比</span><br><span class="line"></span><br><span class="line">相同之处：元素都会脱离 <span class="selector-tag">Normal</span> <span class="selector-tag">Flow</span>，但是依旧会影响布局；都会生成一个块级框，无论原来是不是块级元素。</span><br><span class="line"></span><br><span class="line">不同之处：<span class="selector-tag">float</span> 的包含块是最近的块级祖先元素。</span><br></pre></td></tr></table></figure>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*浮动元素 float 后其父元素高度塌陷*/</span></span><br><span class="line"></span><br><span class="line">原因：</span><br><span class="line"></span><br><span class="line">1. 元素浮动后，就不在整个 <span class="selector-tag">Normal</span> <span class="selector-tag">Flow</span> 的管辖范围，那么它之前存在在父元素内的高度就随着浮动不复存在了，而此时父元素会默认自己里面没有任何内容（前提是未给父元素设置固定高度，如果父元素本身有固定高度，就不会出现这种情况）</span><br><span class="line"></span><br><span class="line">解决办法：</span><br><span class="line"></span><br><span class="line">1. 给父元素也添加 <span class="selector-tag">float</span> 。这样让父元素与子元素一起脱离文档流浮动起来，保证子元素在父元素内，这样父元素就能自适应子元素的高度，</span><br><span class="line"></span><br><span class="line">2. 给父元素一个固定高度，此方法适用于子元素高度已知并且固定的情况。 </span><br><span class="line"></span><br><span class="line">3、新建一个空的 <span class="selector-tag">div</span> ，为这个 <span class="selector-tag">div</span> 设置 <span class="selector-tag">clear</span>：<span class="selector-tag">both</span>；</span><br><span class="line"></span><br><span class="line">4、给父元素添加 <span class="selector-tag">overflow</span>：<span class="selector-tag">hidden</span>；父元素应该将子元素超出的部分截掉，但是因为子元素有浮动，无法裁剪，所有只能由父元素增加高度去包裹住子元素，使得父元素拥有了高度，而这个高度是跟随子元素自适应的高度，这样就把浮动的子元素包含在父元素内了。</span><br><span class="line"></span><br><span class="line"><span class="comment">/*实现元素垂直居中*/</span></span><br><span class="line"></span><br><span class="line">1.不知道自己高度和父容器高度的情况下, 利用绝对定位只需要以下三行：</span><br><span class="line"><span class="selector-tag">parentElement</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">childElement</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2.若父元素设置了高度，则只需要使用相对定位即可</span><br><span class="line"><span class="selector-tag">parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: xxx;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">1</span>/<span class="number">2</span> xxx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><p><a href="https://blog.csdn.net/chris_z_0622/article/details/65442975?t=123" target="_blank" rel="noopener">关于浮动元素float使其父元素高度塌陷的原因及解决方法</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/iyangyuan/archive/2013/03/27/2983813.html" target="_blank" rel="noopener">经验分享：CSS浮动(float,clear)通俗讲解</a></p>
+</li>
+<li><p><a href="http://www.divcss5.com/css3-style/c36306.shtml" target="_blank" rel="noopener">CSS技术中的position定位几种方式</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/question/20543196/answer/57757836" target="_blank" rel="noopener">用 CSS 实现元素垂直居中，有哪些好的方案？</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/18/spring/" rel="next" title="Spring 学习笔记">
+                <i class="fa fa-chevron-left"></i> Spring 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/28/字符串-Hash/" rel="prev" title="字符串 Hash">
+                字符串 Hash <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">D3E0</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Normal-Flow"><span class="nav-number">1.</span> <span class="nav-text">Normal Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Float"><span class="nav-number">2.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Position"><span class="nav-number">3.</span> <span class="nav-text">Position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">D3E0</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
